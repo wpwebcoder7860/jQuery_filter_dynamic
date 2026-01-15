@@ -57,8 +57,7 @@ Example:
 
 ``` js
 filter.is_required({
-    menu_position: { required: false },
-    menu_url: { required: false }
+    name: { required: false },
 });
 ```
 
@@ -72,8 +71,7 @@ Example:
 
 ``` js
 filter.addPattern({
-    menu_name: { pattern: /^[a-zA-Z]+$/, message: "Only letters allowed" },
-    menu_url: { pattern: /^https?:\/\/.+$/, message: "Enter valid URL" }
+    name: { pattern: /^[a-zA-Z]+$/, message: "Only letters allowed" },
 });
 ```
 
@@ -83,7 +81,7 @@ filter.addPattern({
 
 ``` js
 filter.addMinLength({
-    menu_name: { minLength: 3 }
+    name: { minLength: 3 }
 });
 ```
 
@@ -93,7 +91,7 @@ filter.addMinLength({
 
 ``` js
 filter.addMaxLength({
-    menu_name: { maxLength: 10 }
+    name: { maxLength: 10 }
 });
 ```
 
@@ -103,12 +101,11 @@ filter.addMaxLength({
 
 ``` js
 filter.addMessage({
-    menu_name: {
+    name: {
         messages: {
-            required: "Menu Name is required",
-            minlength: "Menu Name must be at least 3 characters",
-            maxlength: "Menu Name cannot exceed 10 characters",
-            menu_name_pattern: "Only letters allowed"
+            required: "name is required",
+            minlength: "name must be at least 3 characters",
+            maxlength: "name cannot exceed 10 characters",
         }
     }
 });
@@ -119,10 +116,8 @@ filter.addMessage({
 ## ✅ init(formId, items)
 
 ``` js
-filter.init("#addMenuForm", {
-    menu_name: true,
-    menu_position: true,
-    menu_url: true
+filter.init("#FormId", {
+    email: true,
 });
 ```
 
@@ -131,7 +126,7 @@ filter.init("#addMenuForm", {
 ## ✅ destroy(formId)
 
 ``` js
-filter.destroy("#addMenuForm");
+filter.destroy("#FormId");
 ```
 
 ------------------------------------------------------------------------
@@ -142,32 +137,28 @@ filter.destroy("#addMenuForm");
 const filter = new formFilter();
 
 filter.is_required({
-    menu_position: { required: false },
-    menu_url: { required: false }
+    name: { required: false },
 });
 
 filter.addPattern({
-    menu_name: { pattern: /^[a-zA-Z]+$/, message: "Only letters allowed" }
+    name: { pattern: /^[a-zA-Z]+$/, message: "Only letters allowed" }
 });
 
-filter.addMinLength({ menu_name: { minLength: 3 } });
-filter.addMaxLength({ menu_name: { maxLength: 10 } });
+filter.addMinLength({ name: { minLength: 3 } });
+filter.addMaxLength({ name: { maxLength: 10 } });
 
 filter.addMessage({
     menu_name: {
         messages: {
-            required: "Menu Name is required",
-            minlength: "Menu Name must be at least 3 characters",
-            maxlength: "Menu Name cannot exceed 10 characters",
-            menu_name_pattern: "Only letters allowed"
+            required: "name is required",
+            minlength: "name must be at least 3 characters",
+            maxlength: "name cannot exceed 10 characters",
         }
     }
 });
 
 filter.init("#addMenuForm", {
-    menu_name: true,
-    menu_position: true,
-    menu_url: true
+    email: true,
 });
 ```
 
