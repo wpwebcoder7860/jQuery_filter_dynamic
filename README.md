@@ -157,7 +157,7 @@ filter.addMessage({
     }
 });
 
-filter.init("#addMenuForm", {
+filter.init("#FormId", {
     email: true,
 });
 ```
